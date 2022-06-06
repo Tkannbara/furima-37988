@@ -82,10 +82,10 @@ Things you may want to cover:
 | Column             | Type      | Options                       |
 | ------------------ | ------    | -------------------------     |
 | post_code          | string    | null: false                   |
-| prefecutures       | string    | null: false                   |
+| prefecutures_id    | integer   | null: false                   |
 | municipality       | string    | null: false                   |
 | house_number       | string    | null: false                   |
-| building name      | string    | null: false                   |
+| building name      | string    |                               |
 | pohne              | string    | null: false                   |
 | order              | references| null: false foreign_key: true |
 
