@@ -50,17 +50,17 @@ Things you may want to cover:
 | ------              | ------     | -----------                    |
 | title               | string     | null: false                    |
 | contents            | text       | null: false                    |
-| category_id         | string     | null: false                    |
-| product_status_id   | string     | null: false                    |
-| shipping_charges_id | string     | null: false                    |
-| shipping_address_id | string     | null: false                    |
-| shipping_date_id    | string     | null: false                    |
+| category_id         | integer    | null: false                    |
+| product_status_id   | integer    | null: false                    |
+| shipping_charges_id | integer    | null: false                    |
+| shipping_address_id | integer    | null: false                    |
+| shipping_date_id    | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
  - belongs_to :user
- - has_one :orders
+ - has_one :order
 
 ## orders テーブル
 
@@ -68,12 +68,14 @@ Things you may want to cover:
 | ------     |    ---------- | ------------------------------ |
 | user       | references    | null: false, foreign_key: true |
 | item       | references    | null: false, foreign_key: true |
+| addresss   | references    | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
+- has_many :addresss
 
 ## addresss テーブル
 
@@ -83,7 +85,7 @@ Things you may want to cover:
 | municipality       | string    | null: false                   |
 | house_number       | string    | null: false                   |
 | pohne              | string    | null: false                   |
-| orders             | references| null: false foreign_key: true |
+| order              | references| null: false foreign_key: true |
 
 ### Association
- - has_one :orders
+ - belongs_to :order
