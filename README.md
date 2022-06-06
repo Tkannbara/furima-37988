@@ -68,22 +68,24 @@ Things you may want to cover:
 | ------     |    ---------- | ------------------------------ |
 | user       | references    | null: false, foreign_key: true |
 | item       | references    | null: false, foreign_key: true |
-| addresss   | references    | null: false, foreign_key: true |
+
 
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- has_many :addresss
+- has_one :address
 
 ## addresss テーブル
 
 | Column             | Type      | Options                       |
 | ------------------ | ------    | -------------------------     |
 | post_code          | string    | null: false                   |
+| prefecutures       | string    | null: false                   |
 | municipality       | string    | null: false                   |
 | house_number       | string    | null: false                   |
+| building name      | string    | null: false                   |
 | pohne              | string    | null: false                   |
 | order              | references| null: false foreign_key: true |
 
