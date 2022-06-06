@@ -85,7 +85,7 @@ Things you may want to cover:
 | prefecutures_id    | integer   | null: false                   |
 | municipality       | string    | null: false                   |
 | house_number       | string    | null: false                   |
-| building name      | string    |                               |
+| building_name      | string    |                               |
 | pohne              | string    | null: false                   |
 | order              | references| null: false foreign_key: true |
 
