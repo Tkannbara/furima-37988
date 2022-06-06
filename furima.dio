@@ -10,7 +10,7 @@
                 <mxCell id="3" value="・usersテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;" vertex="1" parent="1">
                     <mxGeometry x="170" y="160" width="270" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="・nickname ( string型, NOT NULL )&#10;・email ( string型, NOT NULL, ユニーク制約 ）&#10;・encrypted_password ( string型, NOT NULL ）&#10;・family_name (string型, NOT NULL )&#10;・first_name_kana ( string型,  NOT NULL )&#10;・family_name_kana ( string型, NOT NULL )&#10;・first_name ( string型, NOT NULL )&#10;・birth_date ( date型, NOT NULL )" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="3">
+                <mxCell id="4" value="・nickname ( string型, NOT NULL )&#10;・email ( string型, NOT NULL, ユニーク制約 ）&#10;・encrypted_password ( string型, NOT NULL ）&#10;・family_name (string型, NOT NULL )&#10;・first_name ( string型,  NOT NULL )&#10;・family_name ( string型, NOT NULL )&#10;・first_name ( string型, NOT NULL )&#10;・birth_date ( date型, NOT NULL )" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="3">
                     <mxGeometry y="30" width="270" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="・items" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;" vertex="1" parent="1">

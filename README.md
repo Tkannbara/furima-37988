@@ -50,11 +50,11 @@ Things you may want to cover:
 | ------              | ------     | -----------                    |
 | title               | string     | null: false                    |
 | contents            | text       | null: false                    |
-| category_id         | integer    | null: false                    |
-| product_status_id   | integer    | null: false                    |
-| shipping_charges_id | integer    | null: false                    |
-| shipping_address_id | integer    | null: false                    |
-| shipping_date_id    | integer    | null: false                    |
+| category_id         | string     | null: false                    |
+| product_status_id   | string     | null: false                    |
+| shipping_charges_id | string     | null: false                    |
+| shipping_address_id | string     | null: false                    |
+| shipping_date_id    | string     | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -80,12 +80,10 @@ Things you may want to cover:
 | Column             | Type      | Options                       |
 | ------------------ | ------    | -------------------------     |
 | post_code          | string    | null: false                   |
-| prefecutures       | string    | null: false                   |
 | municipality       | string    | null: false                   |
 | house_number       | string    | null: false                   |
-| building name      | string    | null: false                   |
 | pohne              | string    | null: false                   |
-| order              | references| null: false foreign_key: true |
+| orders             | references| null: false foreign_key: true |
 
 ### Association
- - has_one :order
+ - has_one :orders
