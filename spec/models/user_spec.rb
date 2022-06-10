@@ -24,6 +24,9 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password", "Password is invalid"
       end
+       
+      
+
       it "nicknameがない場合は登録できないこと" do 
         @user.nickname = ''
         @user.valid? 
@@ -36,11 +39,44 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "Email can't be blank"
       end
 
+      it "重複したemailは登録できない" do
+        @user.email = 'test@com'
+        @user.email = 'test@com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include
+      end
+      
+      it "emailに@を含まない場合は登録できない" do
+        @user.email = 'testcom'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Email is invalid"
+      end
+
+
       it "passwordがない場合は登録できないこと" do
         @user.password = ''
         @user.valid?
         expect(@user.errors.full_messages).to include "Password can't be blank"
       end
+      
+    
+      it "英字のみのパスワードでは登録できない" do
+        @user.password = 'abcdef'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+
+    it "数字のみのパスワードでは登録できない" do
+      @user.password = '123456'
+      @user.valid?
+      expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
+    end
+
+     it "全角文字を含むパスワードでは登録できない" do
+      @user.password = '12うabc'
+      @user.valid?
+      expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
+     end
 
       it "encrypted_passwordがない場合は登録できないこと" do
         @user.encrypted_password = ''
@@ -57,7 +93,6 @@ RSpec.describe User, type: :model do
       it 'family_nameが全角入力でなければ登録できないこと' do
         @user.family_name = 'ｱｲｳｴｵ'
         @user.valid?
-        
         expect(@user.errors.full_messages).to include "Family name is invalid"
       end
 
@@ -71,7 +106,6 @@ RSpec.describe User, type: :model do
       it 'first_nameが全角入力でなければ登録できないこと' do
         @user.first_name = 'ｱｲｳｴｵ'
         @user.valid?
-        
         expect(@user.errors.full_messages).to include "First name is invalid"
       end
 
