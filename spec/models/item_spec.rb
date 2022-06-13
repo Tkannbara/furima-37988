@@ -113,6 +113,13 @@ describe '商品の出品登録' do
       @item.valid?
       expect(@item.errors.full_messages).to include "Price is not a number"
     end
+
+      it '価格に半角数字以外が含まれている場合は出品できない' do
+        @item.price = 'abcdef'
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+
+    end
     it '価格の範囲が、300円未満だと出品できない' do
       @item.price = 100
       @item.valid?

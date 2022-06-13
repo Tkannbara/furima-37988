@@ -9,9 +9,8 @@ class Item < ApplicationRecord
   belongs_to :user
 
   with_options presence: true do
-  validates :user_id
-  validates :title, presence: true
-  validates :contents, presence: true
+  validates :title
+  validates :contents
   validates :category_id, numericality: { other_than: 1} 
   validates :product_status_id, numericality: { other_than: 1} 
   validates :shipping_charges_id, numericality: { other_than: 1} 
