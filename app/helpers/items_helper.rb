@@ -1,4 +1,4 @@
-module FuriasHelper
+module ItemsHelper
   def index
   end
 end
