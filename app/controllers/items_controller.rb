@@ -60,6 +60,6 @@ end
   end
 
   def contributor_confirmation
-    redirect_to root_path unless @item.user_id == current_user.id 
+    redirect_to root_path unless @item.user_id == current_user.id && @item.order.nil?
   end
 end
