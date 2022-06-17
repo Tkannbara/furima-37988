@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe OrderForm, type: :model do
   before do
-    @order_form = FactoryBot.build(:order_form)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @order_form = FactoryBot.build(:order_form, user_id: user.id, item_id: item.id)
   end
 
   describe '配送先情報の保存' do
@@ -10,14 +12,7 @@ RSpec.describe OrderForm, type: :model do
       it 'すべての値が正しく入力されていれば保存できること' do
         expect(@order_form).to be_valid
       end
-      it 'user_idが空でなければ保存できる' do
-        @order_form.user_id = 1
-        expect(@order_form).to be_valid
-      end
-      it 'item_idが空でなければ保存できる' do
-        @order_form.item_id = 1
-        expect(@order_form).to be_valid
-      end
+     
       it '郵便番号が「3桁+ハイフン+4桁」の組み合わせであれば保存できる' do
         @order_form.post_code = '123-4560'
         expect(@order_form).to be_valid
@@ -99,6 +94,16 @@ RSpec.describe OrderForm, type: :model do
         @order_form.pohne = 12_345_678_910_123_111
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include "Pohne is invalid"
+      end
+      it '電話番号が9桁以下だと保存できないこと' do
+        @order_form.pohne = 12_345_678
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include 
+      end
+      it '電話番号に半角数字以外が含まれている場合は保存できない' do
+        @order_form.pohne = 'abcdefghi'
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include 
       end
       it 'トークンが空だと保存できないこと' do
         @order_form.token = ''

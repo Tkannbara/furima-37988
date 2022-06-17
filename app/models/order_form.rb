@@ -2,17 +2,18 @@ class OrderForm
   include ActiveModel::Model
 
   attr_accessor :user_id, :item_id, :post_code, :shipping_charges_id, :municipality, :house_number, :building_name, :pohne, :token 
-
+   
   with_options presence: true do
-    validates :user_id
-    validates :item_id
+    VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
+    validates :user_id, presence: true
+    validates :item_id, presence: true
 
 
     validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :shipping_charges_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :municipality
     validates :house_number
-    validates :pohne, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+    validates :pohne, format: { with:VALID_PHONE_REGEX, message: 'is invalid' }
     validates :token
   end
 
