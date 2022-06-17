@@ -98,12 +98,12 @@ RSpec.describe OrderForm, type: :model do
       it '電話番号が9桁以下だと保存できないこと' do
         @order_form.pohne = 12_345_678
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include 
+        expect(@order_form.errors.full_messages).to include "Pohne is invalid"
       end
       it '電話番号に半角数字以外が含まれている場合は保存できない' do
         @order_form.pohne = 'abcdefghi'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include 
+        expect(@order_form.errors.full_messages).to include "Pohne is invalid"
       end
       it 'トークンが空だと保存できないこと' do
         @order_form.token = ''
