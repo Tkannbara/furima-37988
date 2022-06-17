@@ -23,6 +23,6 @@ class ShippingCharges < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :items
-  has_many :order
+  has_many :addressses
 
 end
