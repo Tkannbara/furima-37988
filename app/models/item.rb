@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   with_options presence: true do
   validates :title
   validates :contents
+  validates :image
   validates :category_id, numericality: { other_than: 1} 
   validates :product_status_id, numericality: { other_than: 1} 
   validates :shipping_charges_id, numericality: { other_than: 1} 
